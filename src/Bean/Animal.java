@@ -8,7 +8,7 @@ public class Animal {
 	private String Surnom;
 	private char sexe;
 	private String numTatouage;
-	private Animal accouple;
+	private Animal accouple = null;
 	
 	
 	
@@ -96,15 +96,21 @@ public class Animal {
 	 * 
 	 * @param ajout a un animal MALE d'un Animal femelle acouplé
 	 * necessite des sexe different et que la race des 2 animaux soit identiques 
+	 * enfin necessite aussi que l'animal n'est pas deja quelquun avec qui il s'est acouplée
 	 */
 	public void setAccouple(Animal accouple) {
 		
 		if(this.sexe == 'M') {
 			
-		
+			
 			if(this.sexe != accouple.sexe ) {
 				if(this.race.equals(accouple.race)){
-					this.accouple = accouple;
+					if(this.getAccouple() == null) {
+						this.accouple = accouple;
+					}
+					else {
+						System.out.println("l'animal a deja un animal accouplé");
+					}
 				}else {
 					System.out.println(" Impossible, un " + this.sexe + " ne peut pas s'accoupler avec un " + accouple.getRace());
 				}

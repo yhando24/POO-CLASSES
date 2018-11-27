@@ -10,7 +10,6 @@ public class Main {
 		// rajout de l'accouplement avec Josianne pour Jose
 		Jose.setAccouple(Josianne);
 
-
 		System.out.println(Jose.toString());
 	}
 	
