@@ -8,7 +8,7 @@ public class Animal {
 	private String Surnom;
 	private char sexe;
 	private String numTatouage;
-	private Animal accouple = null;
+	public Animal accouple = null;
 	
 	
 	
@@ -29,7 +29,9 @@ public class Animal {
 
 
 
-	
+
+
+
 	public String getRace() {
 		return race;
 	}
@@ -98,21 +100,23 @@ public class Animal {
 	 * necessite des sexe different et que la race des 2 animaux soit identiques 
 	 * enfin necessite aussi que l'animal n'est pas deja quelquun avec qui il s'est acouplée
 	 */
-	public void setAccouple(Animal accouple) {
+	public boolean setAccouple(Animal accouple) {
 		
+		boolean possible = false;
 		if(this.sexe == 'M') {
 			
 			
 			if(this.sexe != accouple.sexe ) {
 				if(this.race.equals(accouple.race)){
 					if(this.getAccouple() == null) {
+						possible = true;
 						this.accouple = accouple;
 					}
 					else {
 						System.out.println("l'animal a deja un animal accouplé");
 					}
 				}else {
-					System.out.println(" Impossible, un " + this.sexe + " ne peut pas s'accoupler avec un " + accouple.getRace());
+					System.out.println(" Impossible, un " + this.race + " ne peut pas s'accoupler avec un " + accouple.getRace());
 				}
 				
 			} else {
@@ -122,6 +126,7 @@ public class Animal {
 			System.out.println("impossible, l'information dois etre stocker dans l'animal");
 		}
 		
+		return possible;
 	}
 
 	
